@@ -19,12 +19,12 @@ export class ZxingScanner implements OnDestroy {
   public isScanning = false;
 
   constructor(
-    private readonly scanner: ZxingScannerService,
+    private readonly scannerService: ZxingScannerService,
     private readonly changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   public get barcodeFormats() {
-    return this.scanner.barcodeFormats;
+    return this.scannerService.barcodeFormats;
   }
 
   public scan(): void {
@@ -52,27 +52,27 @@ export class ZxingScanner implements OnDestroy {
   }
 
   public onScanSuccess(result: string): void {
-    this.updateImei(this.scanner.getImeiFromBarcode(result));
+    this.updateImei(this.scannerService.getImeiFromBarcode(result));
     this.output = this.imei || 'Scanned barcode does not contain an IMEI';
     this.isScanning = false;
     this.changeDetectorRef.detectChanges();
   }
 
   public onScanError(error: Error): void {
-    this.output = this.scanner.getScanErrorMessage(error);
+    this.output = this.scannerService.getScanErrorMessage(error);
     this.isScanning = false;
     this.changeDetectorRef.detectChanges();
   }
 
   public onCamerasNotFound(): void {
-    this.output = this.scanner.getCamerasNotFoundMessage();
+    this.output = this.scannerService.getCamerasNotFoundMessage();
     this.isScanning = false;
     this.changeDetectorRef.detectChanges();
   }
 
   public onPermissionResponse(hasPermission: boolean): void {
     if (!hasPermission) {
-      this.output = this.scanner.getPermissionDeniedMessage();
+      this.output = this.scannerService.getPermissionDeniedMessage();
       this.isScanning = false;
       this.changeDetectorRef.detectChanges();
     }

@@ -20,12 +20,12 @@ export class NativeBarcodeDetecter implements OnDestroy {
   public isScanning = false;
 
   constructor(
-    private readonly scanner: NativeBarcodeScanner,
+    private readonly scannerService: NativeBarcodeScanner,
     private readonly changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   public ngOnDestroy(): void {
-    this.scanner.stopScanning(this.preview?.nativeElement);
+    this.scannerService.stopScanning(this.preview?.nativeElement);
   }
 
   public async scan(): Promise<void> {
@@ -45,7 +45,7 @@ export class NativeBarcodeDetecter implements OnDestroy {
       this.output = 'Scanning...';
       this.changeDetectorRef.detectChanges();
 
-      const imei = await this.scanner.scanNativeBarcode(video);
+      const imei = await this.scannerService.scanNativeBarcode(video);
       this.updateImei(imei);
       this.output = imei;
     } catch (error) {
@@ -61,7 +61,7 @@ export class NativeBarcodeDetecter implements OnDestroy {
   }
 
   public clear(): void {
-    this.scanner.stopScanning(this.preview?.nativeElement);
+    this.scannerService.stopScanning(this.preview?.nativeElement);
     this.imei = '';
     this.output = 'No output yet';
     this.isScanning = false;
