@@ -20,7 +20,7 @@ type WindowWithBarcodeDetector = Window & {
 @Injectable({
   providedIn: 'root',
 })
-export class Scanner {
+export class NativeBarcodeScanner {
   private readonly barcodeFormats = [
     'code_128',
     'code_39',

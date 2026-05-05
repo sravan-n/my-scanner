@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Scanner } from '../../services/scanner';
+import { NativeBarcodeScanner } from '../../services/native-barcode-scanner';
 
 @Component({
   selector: 'app-native-barcode-detecter',
@@ -20,7 +20,7 @@ export class NativeBarcodeDetecter implements OnDestroy {
   public isScanning = false;
 
   constructor(
-    private readonly scanner: Scanner,
+    private readonly scanner: NativeBarcodeScanner,
     private readonly changeDetectorRef: ChangeDetectorRef,
   ) {}
 

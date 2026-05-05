@@ -12,10 +12,26 @@
       (ngModelChange)="updateImei($event)"
       (beforeinput)="allowOnlyImeiDigits($event)"
     />
-    <button class="scan-btn" mat-flat-button matSuffix color="primary" type="submit">Scan</button>
+    <button class="scan-btn" mat-flat-button matSuffix color="primary" type="submit" [disabled]="isScanning">
+      Scan
+    </button>
   </mat-form-field>
   <button class="clear-link" mat-button type="button" (click)="clear()">Clear</button>
 </form>
+<zxing-scanner
+  class="scanner-preview"
+  [class.is-active]="isScanning"
+  [enable]="isScanning"
+  [formats]="barcodeFormats"
+  [tryHarder]="true"
+  [timeBetweenScans]="250"
+  [delayBetweenScanSuccess]="500"
+  previewFitMode="cover"
+  (scanSuccess)="onScanSuccess($event)"
+  (scanError)="onScanError($event)"
+  (camerasNotFound)="onCamerasNotFound()"
+  (permissionResponse)="onPermissionResponse($event)"
+></zxing-scanner>
 <div class="result">
   <h3>Output</h3>
   <p>{{ output }}</p>
