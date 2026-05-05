@@ -1,0 +1,41 @@
+.container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'header header'
+        'left right'
+        'footer footer';
+    gap: 1vw;
+}
+
+.header {
+    grid-area: header;
+}
+.left {
+    grid-area: left;
+}
+.right {
+    grid-area: right;
+}
+.footer {
+    grid-area: footer;
+}
+
+.header,
+.left,
+.right,
+.footer {
+    border: 2px solid rgb(51, 51, 225);
+    border-radius: 10px;
+    padding: 1vw;
+}
+
+.header {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}

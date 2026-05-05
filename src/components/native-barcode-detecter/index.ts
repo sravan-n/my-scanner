@@ -1,0 +1,1 @@
+export { NativeBarcodeDetecter } from './native-barcode-detecter';

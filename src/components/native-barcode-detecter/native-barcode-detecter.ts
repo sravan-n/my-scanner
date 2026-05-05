@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './native-barcode-detecter.scss'
 })
 export class NativeBarcodeDetecter {
+  public output: string = 'No output yet';
+
+  constructor() {}
 
 }
