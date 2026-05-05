@@ -1,11 +1,66 @@
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .scan-section {
   display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
 }
 
 .imei-field {
   width: min(100%, 420px);
+  font-size: 1.05rem;
 }
 
 .scan-btn {
   margin-right: 1vw;
+  font-size: 1rem;
+}
+
+.clear-link {
+  align-self: flex-start;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.scanner-preview {
+  display: none;
+  width: min(100%, 420px);
+  aspect-ratio: 4 / 3;
+  background: #111;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.scanner-preview.is-active {
+  display: block;
+}
+
+.result {
+  width: min(100%, 420px);
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--mat-sys-surface-container-low);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 8px;
+  color: var(--mat-sys-on-surface);
+  text-align: left;
+}
+
+.result h3 {
+  margin: 0 0 8px;
+  color: var(--mat-sys-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.result p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }

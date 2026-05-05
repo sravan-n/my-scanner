@@ -14,7 +14,9 @@
     />
     <button class="scan-btn" mat-flat-button matSuffix color="primary" type="submit">Scan</button>
   </mat-form-field>
+  <button class="clear-link" mat-button type="button" (click)="clear()">Clear</button>
 </form>
 <div class="result">
-    <p>Output: {{ output }}</p>
+  <h3>Output</h3>
+  <p>{{ output }}</p>
 </div>

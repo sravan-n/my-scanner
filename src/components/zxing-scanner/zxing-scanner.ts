@@ -25,6 +25,11 @@ export class ZxingScanner {
     this.imei = value.replace(/\D/g, '').slice(0, 15);
   }
 
+  public clear(): void {
+    this.imei = '';
+    this.output = 'No output yet';
+  }
+
   public allowOnlyImeiDigits(event: Event): void {
     const inputEvent = event as InputEvent;
 
