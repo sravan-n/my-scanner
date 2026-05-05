@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import NativeBarcodeDetecter from '../components/native-barcode-detecter/native-barcode-detecter';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [NativeBarcodeDetecter],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
