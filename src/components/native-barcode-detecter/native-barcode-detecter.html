@@ -1,5 +1,20 @@
 <h2>Native Barcode Detection API</h2>
-<div class="scan-section"></div>
+<form class="scan-section" (ngSubmit)="scan()">
+  <mat-form-field appearance="outline" class="imei-field">
+    <mat-label>IMEI</mat-label>
+    <input
+      matInput
+      name="nativeImei"
+      inputmode="numeric"
+      autocomplete="off"
+      maxlength="15"
+      [ngModel]="imei"
+      (ngModelChange)="updateImei($event)"
+      (beforeinput)="allowOnlyImeiDigits($event)"
+    />
+    <button mat-flat-button matSuffix color="primary" type="submit">Scan</button>
+  </mat-form-field>
+</form>
 <div class="result">
     <p>Output: {{ output }}</p>
 </div>
