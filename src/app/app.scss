@@ -8,6 +8,8 @@
         'left right'
         'footer footer';
     gap: 1vw;
+    padding: 1vw;
+    margin: 1vw;
 }
 
 .header {
@@ -34,8 +36,11 @@
 
 .left,
 .right {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .header {
